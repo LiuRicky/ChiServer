@@ -1,6 +1,9 @@
 文件说明
 ---
 * packet.h：函数封装
+* MutexLock.h, Condition.h: IPC
+* Conf.h: configuration
+* MemoryPool.h: using memory pool to allocate memory
 
 命名规则
 ---

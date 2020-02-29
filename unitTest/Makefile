@@ -1,8 +1,11 @@
-STD := -std=c++11
+GSTD := g++ -std=c++11
 OPT := -lpthread
 
-all:
-	g++ $(STD) test1.cpp ../Conf.o -o test $(OPT)
+test1:
+	$(GSTD) test1.cpp ../Conf.o -o test $(OPT)
+
+testlock:
+	$(GSTD) -c testlock.cpp $(OPT)
 
 .PHONY:clean
 clean:
