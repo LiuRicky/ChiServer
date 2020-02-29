@@ -10,3 +10,17 @@
 * SP_*：智能指针share_ptr<T>
 * WP_*：智能指针weak_ptr<T>
 * UP_*：智能指针unique_ptr<T>
+
+HighLight
+---
+* C++11 new feature
+* reintepret_cast, static_cast
+* smart pointer
+* && move
+* std::function
+* use memory pool to manage memory
+* Reactor model
+* one loop per thread + non-blocking I/O
+* epoll
+* asychronic log: double buffer
+* RAII

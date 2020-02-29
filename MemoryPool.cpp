@@ -1,4 +1,6 @@
 #include "MemoryPool.h"
+#include "Epoll.h"
+#include "TimerManager.h"
 
 MemoryPool::MemoryPool(){
 
@@ -84,7 +86,7 @@ void* use_memory(size_t size){
     return reinterpret_cast<void*>(get_memorypool(((size+7)>>3)-1).allocate());  
 }
 
-void free_momery(size_t size, void* p){
+void free_memory(size_t size, void* p){
     if(!p){
         return;
     }
@@ -95,7 +97,7 @@ void free_momery(size_t size, void* p){
     get_memorypool(((size+7)>>3)-1).deallocate(reinterpret_cast<Slot *>(p));
 }
 
-void init_memorypool(){
+void init_memorypool(){// 64 64-th bits blocks
     for(int i = 0; i < 64; i++)
         get_memorypool(i).init((i+1)<<3);
 }

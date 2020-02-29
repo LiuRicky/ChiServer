@@ -10,6 +10,9 @@ config:
 memorypool:
 	$(GSTD) -c MemoryPool.cpp $(OPT)
 
+thread:
+	$(GSTD) -c Thread.cpp $(OPT)
+
 .PHONY:clean
 clean:
 	rm *.o
