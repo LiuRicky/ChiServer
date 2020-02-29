@@ -1,4 +1,6 @@
 #include "EventLoop.h"
+#include "Epoll.h"
+#include "TimeManger.h"
 
 bool EventLoop::quit = false;
 
