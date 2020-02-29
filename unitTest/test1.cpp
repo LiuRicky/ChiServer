@@ -1,27 +1,11 @@
-#include "EventLoop.h"
-#include "thread/thread.h"
+#include "../Conf.h"
 #include <iostream>
-using namespace std;
 
-void threadFUnc()
-{
-	cout << "threadFunc(): pid = " << getpid() 
-		<< ", tid = " << CurrentThread::tid() << endl;
-
-	EventLoop loop;
-	loop.loop();
-}
-
-int main()
-{
-	cout << "main(): pid = " << getpid() 
-		<< ", tid = " CurrentThread::tid() << endl;
-
-	EventLoop loop;
-
-	Thread thread(threadFunc);
-	thread.start();
-
-	loop.loop();
-	pthread_exit(NULL);
+int main(){
+	Conf conf = getconf();
+	char* filepath = "../ChiServerConf.conf";
+	conf.init(filepath);
+	printf("%s\n", "read conf");
+	cout<<conf.getport()<<endl;
+	return 0;
 }

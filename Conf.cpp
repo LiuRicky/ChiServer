@@ -12,6 +12,10 @@ Conf::Conf(){
 
 }
 
+Conf::~Conf(){
+	
+}
+
 int Conf::getio_thread(){
 	return io_thread;
 }
@@ -121,4 +125,9 @@ void Conf::init(char *path){
 		capacity=stoi(m["capacity"]);
 	else
 		capacity=DEFAULT_CAPACITY;
+}
+
+Conf& getconf(){
+	static Conf conf;
+	return conf;
 }
