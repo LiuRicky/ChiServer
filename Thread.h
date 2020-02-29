@@ -42,5 +42,3 @@ private:
     std::string name_;
 };
 
-typedef std::shared_ptr<Thread> SP_Thread;
-typedef std::unique_ptr<Thread, decltype(deleteElement<Thread>)*> UP_Thread;

@@ -6,10 +6,11 @@
 #include <stdint.h>
 #include <stdarg.h>
 #include <utility>
-#include "MutexLock.h"
 #include <functional>
 
 #define BlockSize 4096
+
+class MutexLock;
 
 /*
 * used to allocate memory
@@ -17,6 +18,8 @@
 struct Slot{//signal slot
     Slot* next;
 };
+
+
 
 class MemoryPool{
 public:

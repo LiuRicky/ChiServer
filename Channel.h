@@ -3,7 +3,6 @@
 #include <functional>
 #include <memory>
 #include <sys/epoll.h>
-#include "MemoryPool.h"
 
 class EventLoop;
 typedef std::shared_ptr<EventLoop> SP_EventLoop;

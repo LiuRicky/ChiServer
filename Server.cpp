@@ -1,4 +1,8 @@
 #include "Server.h"
+#include "Http_conn.h"
+#include "EventLoop.h"
+#include "ThreadpoolEventLoop.h"
+#include "Logging.h"
 
 Server::Server(const char* port, int threadnum)
 	: loop(newElement<EventLoop>(), deleteElement<EventLoop>),

@@ -1,15 +1,22 @@
 #pragma once
 
 #include "Packet.h"
-#include "Http_conn.h"
-#include "EventLoop.h"
-#include "ThreadpoolEventLoop.h"
-#include "Logging.h"
+#include <unordered_map>
+#include <memory>
 
-class Http_conn{
+class Http_conn;
+class EventLoop;
+class Channel;
+class ThreadpoolEventLoop;
+typedef std::shared_ptr<Http_conn> SP_Http_conn;
+typedef std::shared_ptr<EventLoop> SP_EventLoop;
+typedef std::shared_ptr<Channel> SP_Channel;
+typedef std::unique_ptr<ThreadpoolEventLoop> UP_ThreadpoolEventLoop;
+
+class Server{
 public:
-	Http_conn(SP_Channel channel);
-	~Http_conn();
+	Server(SP_Channel channel);
+	~Server();
 	void start();
 
 private:

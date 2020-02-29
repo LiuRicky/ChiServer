@@ -1,6 +1,7 @@
 #include "Channel.h"
 #include "EventLoop.h"
 #include "Logging.h"
+#include "MemoryPool.h"
 
 typedef std::shared_ptr<Channel> SP_Channel;
 

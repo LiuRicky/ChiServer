@@ -3,8 +3,8 @@
 #include <queue>
 #include <memory>
 #include <functional>
-#include "MutexLock.h"
 
+class MutexLock;
 class Channel;
 class Epoll;
 class TimerManager;

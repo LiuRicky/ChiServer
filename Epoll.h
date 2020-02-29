@@ -4,7 +4,6 @@
 #include <unordered_map>
 #include <vector>
 #include <memory>
-#include "MemoryPool.h"
 
 #define MAXFDS 10000
 #define EVENTS 4096
@@ -12,9 +11,10 @@
 
 class Channel;
 class Http_conn;
+typedef std::shared_ptr<Channel> SP_Channel;
 
 std::vector<SE> events;
-std::unordered_map<int,SP_Channel>Channelmap;
+std::unordered_map<int,SP_Channel> Channelmap;
 
 class Epoll{
 public:

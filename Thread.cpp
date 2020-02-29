@@ -1,5 +1,9 @@
 #include "Thread.h"
 
+typedef std::shared_ptr<Thread> SP_Thread;
+typedef std::unique_ptr<Thread, decltype(deleteElement<Thread>)*> UP_Thread;
+
+
 Thread::Thread(const ThreadFunc&& Func, const std::string& n)
     : started_(false), joined_(false), 
       pthreadId(0), func(Func), name_(n)
