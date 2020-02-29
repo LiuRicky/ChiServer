@@ -60,7 +60,7 @@ int Conf::getpos(string& buf, int start, int end, bool flag){
 }
 
 // to read config file
-void Conf::Separate_kv(map<string, string>& m, string buf){
+void Conf::Separate_kv(map<string, string>& m, string& buf){
 	int kstart = getpos(buf, 0, buf.size(), false);
 	int kend = getpos(buf, kstart, buf.size(), true);
 	int vstart = getpos(buf, kend, buf.size(), false);
@@ -121,16 +121,4 @@ void Conf::init(char *path){
 		capacity=stoi(m["capacity"]);
 	else
 		capacity=DEFAULT_CAPACITY;
-	if(m.find("ssl")!=m.end())
-		ssl=("1"==m["ssl"]);
-	else
-		ssl=DEFAULT_SSL;
-	if(m.find("sslcrtpath")!=m.end())
-		sslcrtpath=m["sslcrtpath"];
-	else
-		sslcrtpath=DEFAULT_SSLCRTPATH;
-	if(m.find("sslkeypath")!=m.end())
-		sslkeypath=m["sslkeypath"];
-	else
-		sslkeypath=DEFAULT_SSLKEYPATH;
 }
