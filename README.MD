@@ -22,6 +22,10 @@ HighLight
 * Reactor model
 * one loop per thread + non-blocking I/O
 * epoll
-* asychronic log: double buffer
 * RAII
-* GET current
+* GET
+
+Need to do
+---
+some bugs need to be fixed
+complete log system
