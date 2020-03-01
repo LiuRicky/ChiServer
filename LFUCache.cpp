@@ -1,5 +1,4 @@
 #include "LFUCache.h"
-#include "MutexLock.h"
 #include "Conf.h"
 #include "MemoryPool.h"
 

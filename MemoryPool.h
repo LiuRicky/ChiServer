@@ -7,10 +7,10 @@
 #include <stdarg.h>
 #include <utility>
 #include <functional>
+#include "MutexLock.h"
 
 #define BlockSize 4096
 
-class MutexLock;
 
 /*
 * used to allocate memory

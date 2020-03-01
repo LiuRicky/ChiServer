@@ -3,11 +3,10 @@
 #include <queue>
 #include <memory>
 #include <functional>
-
-class MutexLock;
-class Channel;
-class Epoll;
-class TimerManager;
+#include "MutexLock.h"
+#include "Epoll.h"
+#include "TimeManager.h"
+#include "Channel.h"
 
 typedef std::function<void()> Functor;
 typedef std::shared_ptr<Channel> SP_Channel;

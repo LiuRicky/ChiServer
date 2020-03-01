@@ -1,7 +1,4 @@
 #include "EventLoop.h"
-#include "Epoll.h"
-#include "TimeManger.h"
-#include "MutexLock.h"
 
 bool EventLoop::quit = false;
 

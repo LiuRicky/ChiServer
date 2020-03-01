@@ -1,4 +1,4 @@
-#include "Package.h"
+#include "Packet.h"
 
 int Socket(int family, int type, int protocol){
 	int n;
@@ -150,10 +150,10 @@ int tcp_listen(const char* host, const char* serv, socklen_t* addrlenp){
 	int listenfd, n;
 	const int on = 1;
 	struct addrinfo hints, *res, *ressave;
-	bzero(&hints, sizeof(struct addinfo));
+	bzero(&hints, sizeof(struct addrinfo));
 	hints.ai_flags = AI_PASSIVE;
 	hints.ai_family = AF_UNSPEC;
-	hints.ai_socktype = SOCK_TREAM;
+	hints.ai_socktype = SOCK_STREAM;
 	if( (n = getaddrinfo(host, serv, &hints, &res)) != 0){
 		fprintf(stderr, "tcp_listen error");
 	}
@@ -171,7 +171,7 @@ int tcp_listen(const char* host, const char* serv, socklen_t* addrlenp){
 	if(!res){
 		fprintf(stderr, "tcp_listen error\n");
 	}
-	Listen(listenfd, getconf().getListenq());
+	Listen(listenfd, getconf().getlistenq());
 	if(addrlenp){
 		*addrlenp = res->ai_addrlen;
 	}

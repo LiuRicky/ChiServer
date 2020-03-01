@@ -13,9 +13,6 @@ class Channel;
 class Http_conn;
 typedef std::shared_ptr<Channel> SP_Channel;
 
-std::vector<SE> events;
-std::unordered_map<int,SP_Channel> Channelmap;
-
 class Epoll{
 public:
     Epoll();
@@ -26,4 +23,6 @@ public:
     void poll(std::vector<SP_Channel>& req);
 private:
     int epollfd;
+    std::vector<SE> events;
+    std::unordered_map<int,SP_Channel> Channelmap;
 };

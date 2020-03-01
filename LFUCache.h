@@ -2,10 +2,9 @@
 
 #include <unordered_map>
 #include <string>
+#include "MutexLock.h"
 
 using std::string;
-
-class MutexLock;
 
 template<typename T>
 class Node{
