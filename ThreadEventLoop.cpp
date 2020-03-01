@@ -4,7 +4,7 @@
 
 ThreadEventLoop::ThreadEventLoop()
     : loop(newElement<EventLoop>(),deleteElement<EventLoop>),
-      thread(newElement<Thread>(std::bind(&ThreadEventLoop::Loop,this)),deleteElement<Thread>)
+      thread(newElement<Thread>(std::bind(&ThreadEventLoop::Loop,this)), deleteElement<Thread>)
 {
 
 }

@@ -5,7 +5,7 @@
 
 class EventLoop;
 class Thread;
-typedef std::shared_ptr<EventLoop> SP_Eventloop;
+typedef std::shared_ptr<EventLoop> SP_EventLoop;
 typedef std::unique_ptr<Thread> UP_Thread;
 
 class ThreadEventLoop{

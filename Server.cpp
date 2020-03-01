@@ -3,12 +3,12 @@
 #include "EventLoop.h"
 #include "ThreadpoolEventLoop.h"
 #include "Logging.h"
+#include "MemoryPool.h"
 
 Server::Server(const char* port, int threadnum)
 	: loop(newElement<EventLoop>(), deleteElement<EventLoop>),
 	  serverchannel(newElement<Channel>(loop), deleteElement<Channel>),
-	  iothreadpool(newElement<threadpoolEventLoop>(threadnum),
-	  	deleteElement<threadpoolEventLoop>)
+	  iothreadpool(newElement<ThreadpoolEventLoop>(threadnum),deleteElement<ThreadpoolEventLoop>)
 {
 	listenfd = tcp_listen(NULL, port, NULL);
 	setnonblocking(listenfd);
@@ -22,7 +22,7 @@ Server::~Server(){
 void Server::start(){
 	iothreadpool->start();
 	serverchannel->setRevents(EPOLLIN | EPOLLET);
-	serverchannel->setReadHandler(bind(&Server::handleconn, this));
+	serverchannel->setReadhandler(bind(&Server::handleconn, this));
 	loop->addPoller(serverchannel);
 	LOG << "Start";
 	loop->loop();
@@ -43,8 +43,7 @@ void Server::handleconn(){
 		connchannel->setClosehandler(bind(&Server::handleclose, this, wpchannel));
 		
 		connchannel->setRevents(EPOLLIN | EPOLLET);
-		SP_Http_conn connhttp(newElement<Http_conn>(connchannel), 
-			deleteElement<Http_conn>())
+		SP_Http_conn connhttp(newElement<Http_conn>(connchannel),deleteElement<Http_conn>);
 		Httpmap[connfd] = move(connhttp);
 
 		nextloop->queueInLoop(bind(&EventLoop::addPoller, nextloop,

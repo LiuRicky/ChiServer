@@ -11,11 +11,12 @@ class ThreadpoolEventLoop;
 typedef std::shared_ptr<Http_conn> SP_Http_conn;
 typedef std::shared_ptr<EventLoop> SP_EventLoop;
 typedef std::shared_ptr<Channel> SP_Channel;
+typedef std::weak_ptr<Channel> WP_Channel;
 typedef std::unique_ptr<ThreadpoolEventLoop> UP_ThreadpoolEventLoop;
 
 class Server{
 public:
-	Server(SP_Channel channel);
+	Server(const char* port, int threadnum);
 	~Server();
 	void start();
 
@@ -28,5 +29,4 @@ private:
 	void handleconn();
 	void handleclose(WP_Channel channel);
 	void deletemap(SP_Channel channel);
-
 };

@@ -24,6 +24,7 @@ typedef struct epoll_event SE;
 * using thought in UNP
 * encapsulate method
 */
+int Accept(int sockfd,SA *cliaddr,socklen_t *addrlen);
 int Socket(int family, int type, int protocol);
 int Bind(int sockfd, SA* myaddr, socklen_t addrlen);
 int Listen(int sockfd, int backlog);

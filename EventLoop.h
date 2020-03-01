@@ -5,7 +5,7 @@
 #include <functional>
 #include "MutexLock.h"
 #include "Epoll.h"
-#include "TimeManager.h"
+#include "TimerManager.h"
 #include "Channel.h"
 
 typedef std::function<void()> Functor;

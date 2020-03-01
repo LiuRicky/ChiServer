@@ -25,7 +25,7 @@ public:
         struct timespec abstime;
         clock_gettime(CLOCK_REALTIME, &abstime);
         abstime.tv_sec += (time_t)seconds;
-        return ETIMEDOUT == pthread_cond_timedwait(&pcond_, mutex.getPthreadMutex(), &abstime);
+        return ETIMEDOUT == pthread_cond_timedwait(&pcond_, mutex_.getPthreadMutex(), &abstime);
     }
 
 private:

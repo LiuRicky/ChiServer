@@ -1,4 +1,6 @@
 #include "EventLoop.h"
+#include "MemoryPool.h"
+#include "Logging.h"
 
 bool EventLoop::quit = false;
 
@@ -39,14 +41,14 @@ void EventLoop::queueInLoop(Functor&& cb){
     }
 }
 
-void EventLoop::dePengdingFuntors(){
+void EventLoop::doPendingFunctors(){
     uint64_t buffer;
     if(read(wakeupfd, &buffer, sizeof(buffer)) < 0){
         LOG << "wake up read error";
     }
     std::vector<Functor> next;
     MutexLockGuard lock(mutex);
-    next.swap(pendingfuncorq);
+    next.swap(pendingfunctorq);
     for(auto& ti : next){
         ti();
     }

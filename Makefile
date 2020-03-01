@@ -1,7 +1,9 @@
 GSTD := g++ -std=c++11
 OPT := -lpthread
+OBJ := main.cpp Server.cpp Http_conn.cpp Mimetype.cpp Packet.cpp EventLoop.cpp Epoll.cpp Channel.cpp TimerManager.cpp Logging.cpp AsyncLogging.cpp LogStream.cpp LogFile.cpp FileUtil.cpp ThreadpoolEventLoop.cpp ThreadEventLoop.cpp Thread.cpp Conf.cpp MemoryPool.cpp LFUCache.cpp
 
-all:
+all: 
+	$(GSTD) $(OBJ) -o ChiServer $(OPT)
 
 lfu: config memorypool
 	$(GSTD) -c LFUCache.cpp $(OPT)
