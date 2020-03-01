@@ -27,6 +27,9 @@ mimetype:
 thread:
 	$(GSTD) -c Thread.cpp $(OPT)
 
+timer:
+	$(GSTD) -c TimerManager.cpp $(OPT)
+
 .PHONY:clean
 clean:
 	rm *.o
